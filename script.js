@@ -50,6 +50,24 @@ const startProcessing = () => {
   };
   
   const processProducts = (products, discountCategory, discountRate) => {
+    const inStock = products.filter((product) => product.inStock);
+    const discountedProducts = [];
+
+    for (let i=0; i < inStock.length; i++) {
+        let discountedTotalValue = inStock[i].price * inStock[i].quantity;
+        if (inStock[i].Category === discountCategory) {
+            discountedTotalValue *= 1 - discountRate;
+        }
+    }
+
+
     // Your code goes here
+    let outputArray = [];
+    const outputElement = document.getElementById("output");
+    products.forEach(item => {
+        let discountedTotalValue = item.quantity * item.price;
+        outputArray.push(item.name, item.category, discountedTotalValue)
+    });
+    outputElement.innerHTML +=
+        "<p>" + outputArray + "</p>";
   };
-  

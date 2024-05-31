@@ -58,16 +58,35 @@ const startProcessing = () => {
         if (inStock[i].Category === discountCategory) {
             discountedTotalValue *= 1 - discountRate;
         }
-    }
-
-
-    // Your code goes here
-    let outputArray = [];
-    const outputElement = document.getElementById("output");
-    products.forEach(item => {
-        let discountedTotalValue = item.quantity * item.price;
-        outputArray.push(item.name, item.category, discountedTotalValue)
+    discountedProducts.push({
+      name: inStockProducts[i].name,
+      category: inStockProducts[i].category,
+      discountedTotalValue: discountedTotalValue.toFixed(2)
     });
-    outputElement.innerHTML +=
-        "<p>" + outputArray + "</p>";
-  };
+    return discountedProducts
+  }
+};
+
+
+//     // Your code goes here
+//     let outputArray = [];
+//     const outputElement = document.getElementById("output");
+//     products.forEach(item => {
+//         let discountedTotalValue = item.quantity * item.price;
+//         outputArray.push(item.name, item.category, discountedTotalValue)
+//     });
+//     outputElement.innerHTML +=
+//         "<p>" + outputArray + "</p>";
+//   };
+
+
+
+//   discountedTotalValue *= 1 - discountRate;
+// }
+// discountedProducts.push({
+//   name: inStockProducts[i]["name"],
+//   category: inStockProducts[i].category,
+//   discountedTotalValue: discountedTotalValue.toFixed(2),
+// });
+// }
+// return discountedProducts;

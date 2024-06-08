@@ -59,34 +59,14 @@ const startProcessing = () => {
             discountedTotalValue *= 1 - discountRate;
         }
     discountedProducts.push({
-      name: inStockProducts[i].name,
-      category: inStockProducts[i].category,
+      name: inStock[i].name,
+      category: inStock[i].category,
       discountedTotalValue: discountedTotalValue.toFixed(2)
     });
-    return discountedProducts
   }
+  for (let item of discountedProducts) {
+    document.getElementById("output").innerHTML +=
+    "<p>Name: " + item.name + ", Category: " + item.category + ", Discounted Total Value: $" + item.discountedTotalValue + "</p>";
+  }
+  return discountedProducts
 };
-
-
-//     // Your code goes here
-//     let outputArray = [];
-//     const outputElement = document.getElementById("output");
-//     products.forEach(item => {
-//         let discountedTotalValue = item.quantity * item.price;
-//         outputArray.push(item.name, item.category, discountedTotalValue)
-//     });
-//     outputElement.innerHTML +=
-//         "<p>" + outputArray + "</p>";
-//   };
-
-
-
-//   discountedTotalValue *= 1 - discountRate;
-// }
-// discountedProducts.push({
-//   name: inStockProducts[i]["name"],
-//   category: inStockProducts[i].category,
-//   discountedTotalValue: discountedTotalValue.toFixed(2),
-// });
-// }
-// return discountedProducts;
